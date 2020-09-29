@@ -51,7 +51,7 @@ message FtsQrDto {
   string fiscalProp = 2;
   string fiscalDocument = 3;
   string ftsDateTime = 4;
-  float totalSum = 5;
+  string totalSum = 5;
 }
 
 message RequestIdDto {
