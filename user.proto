@@ -1,8 +1,8 @@
 syntax = "proto3";
+
 package quichx;
 
 import "google/protobuf/empty.proto";
-import "fts.proto";
 
 service SubscriptionController {
   rpc AddUserToSubscriptionData (PurchaseTokenDto) returns (google.protobuf.Empty);
@@ -11,14 +11,8 @@ service SubscriptionController {
 }
 
 service UserController {
-  rpc SignUp (UserCredentialsDto) returns (google.protobuf.Empty);
-  rpc Restore (EmailDto) returns (google.protobuf.Empty);
-  rpc SignIn (UserCredentialsDto) returns (TokenDto);
-  rpc GetFtsAccountsList (google.protobuf.Empty) returns (Accounts);
-  rpc AddFtsAccountToUser (FtsAccountDto) returns (FtsAccount);
-  rpc DeleteFtsAccountFromUser (PhoneDto) returns (google.protobuf.Empty);
-  rpc ModifyFtsAccount (FtsAccountModifyDto) returns (FtsAccount);
   rpc IncreaseQueryLimit (google.protobuf.Empty) returns (google.protobuf.Empty);
+  rpc AuthWithEsia (EsiaAuthDto) returns (google.protobuf.Empty);
 }
 
 message PurchaseTokenDto {
@@ -67,19 +61,10 @@ message GooglePlaySubscriptionInfo {
   float priceAmountMicros = 6;
 }
 
-message UserCredentialsDto {
-  string email = 1;
-  string password = 2;
-}
-
-message EmailDto {
-  string email = 1;
-}
-
-message PhoneDto {
-  string phone = 1;
-}
-
-message TokenDto {
-  string token = 1;
+message EsiaAuthDto {
+  string sessionId = 1;
+  string phone = 2;
+  string email = 3;
+  string name = 4;
+  string lastname = 5;
 }

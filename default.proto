@@ -23,7 +23,6 @@ message AllDataDto {
   repeated Shop shops = 3;
   repeated Purchase purchases = 4;
   repeated Product products = 5;
-  repeated FtsAccount accounts = 6;
   repeated BillRequest requests = 7;
   repeated Message messages = 8;
   int32 queries = 9;

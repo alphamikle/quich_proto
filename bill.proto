@@ -10,8 +10,6 @@ import "export.proto";
 
 service BillController {
   rpc GetUserBills (google.protobuf.Empty) returns (Bills);
-  rpc GetBillData (FtsQrDto) returns (BillDto);
-  rpc GetBillDataByBillRequestId (RequestIdDto) returns (BillDto);
   rpc CreateBill (BillDto) returns (Bill);
   rpc EditBill (BillDto) returns (Bill);
   rpc DeleteBill (BillIdDto) returns (google.protobuf.Empty);
